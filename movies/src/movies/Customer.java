@@ -52,7 +52,7 @@ class Customer {
 	 * @param totalAmount
 	 * @param frequentRenterPoints
 	 * @param result
-	 * @return
+	 * @return Footer Lines
 	 */
 	private String printFooterLines(double totalAmount, int frequentRenterPoints) {
 		// add footer lines
@@ -66,8 +66,8 @@ class Customer {
 	 * @return
 	 */
 	private String printMovieDetails(double thisAmount, String title) {
-		if (thisAmount == 0) 
-				return "\t" + title + "\t" + "The days to rent should be major than 1" + "\n";
+		if (thisAmount == 0)
+			return "\t" + title + "\t" + "The days to rent should be major than 1" + "\n";
 		return "\t" + title + "\t" + String.valueOf(thisAmount) + "\n";
 	}
 
@@ -76,7 +76,7 @@ class Customer {
 	 * @param each
 	 * @return
 	 */
-	private double selectMovie(double thisAmount, Rental each) {
+	public double selectMovie(double thisAmount, Rental each) {
 		// determine amounts for each line
 		switch (each.getMovie().getPriceCode()) {
 		case Movie.REGULAR:
