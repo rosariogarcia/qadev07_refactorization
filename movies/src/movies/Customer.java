@@ -30,7 +30,7 @@ class Customer {
 			double thisAmount = 0;
 			Rental each = (Rental) rentals.nextElement();
 			if (each.getDaysRented() == 0) {
-				System.out.println("The days to rent should be at least 1 \n" + printMovieDetails(0, each.getMovie().getTitle()));
+				result += printMovieDetails(0, each.getMovie().getTitle());
 			} else {
 				// determine amounts
 				thisAmount = selectMovie(thisAmount, each);
@@ -66,6 +66,8 @@ class Customer {
 	 * @return
 	 */
 	private String printMovieDetails(double thisAmount, String title) {
+		if (thisAmount == 0) 
+				return "\t" + title + "\t" + "The days to rent should be major than 1" + "\n";
 		return "\t" + title + "\t" + String.valueOf(thisAmount) + "\n";
 	}
 
