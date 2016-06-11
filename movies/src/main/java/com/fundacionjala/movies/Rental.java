@@ -1,22 +1,28 @@
 package com.fundacionjala.movies;
 
 class Rental {
-	private Movie _movie;
-	private int _daysRented;
+    private final Movie movie;
 
-	public Rental(Movie movie, int daysRented) {
-		_movie = movie;
-		_daysRented = daysRented;
-	}
+    private final int daysRented;
 
-	public int getDaysRented() {
-		if (_daysRented < 1)
-			return 0;
-		return _daysRented;
-	}
+    public Rental(Movie movie, int daysRented) {
+        this.movie = movie;
+        this.daysRented = daysRented;
+    }
 
-	public Movie getMovie() {
-		return _movie;
-	}
+    public double calculateCharge() {
+        return movie.calculateChargeMovie(daysRented);
+    }
 
+    public int calculateFrequentRenterPoints() {
+        return movie.calculatePoints(daysRented);
+    }
+
+    public int getDaysRented() {
+        return daysRented;
+    }
+
+    public Movie getMovie() {
+        return movie;
+    }
 }

@@ -1,26 +1,28 @@
 package com.fundacionjala.movies;
 
-public class Movie {
-    public static final int CHILDRENS = 2;
-    public static final int REGULAR = 0;
-    public static final int NEW_RELEASE = 1;
-    private String _title;
-    private int _priceCode;
+public abstract class Movie {
 
-    public Movie(String title, int priceCode) {
-        _title = title;
-        _priceCode = priceCode;
+    private String title;
+    private int code;
+
+    public Movie(String title, int code) {
+        this.title = title;
+        this.code = code;
     }
 
-    public int getPriceCode() {
-        return _priceCode;
-    }
+    public abstract double calculateChargeMovie(int daysRented);
 
-    public void setPriceCode(int arg) {
-        _priceCode = arg;
-    }
+    public abstract int calculatePoints(int daysRented);
 
     public String getTitle() {
-        return _title;
+        return title;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
     }
 }
