@@ -3,58 +3,47 @@ package com.fundacionjala.movies;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
 public class MovieChildrenTest {
 
-    @Test
-    public void theMovieCanBeCreateWithTitleAndPriceCode() {
-        Movie movie = new MovieChildren("The Jungle Book");
-        assertNotNull(movie);
-    }
+    private Movie newMovie;
 
     @Test
-    public void movieCanBeCreatedWithWithTitleAndPriceCodeParameters() {
-        Movie newMovie = new Movie("The Jungle Book", 1);
-        assertTrue(newMovie instanceof Movie);
-    }
-
-    @Test
-    public void movieTitleMustBeString() {
-        Movie newMovie = new Movie("The Jungle Book", 1);
+    public void movieChildrenTitleMustBeTheSpecified() {
+        newMovie = new MovieChildren("The Jungle Book");
         assertTrue(newMovie.getTitle().equals("The Jungle Book"));
     }
 
     @Test
-    public void moviePriceCodeMustBeInteger() {
-        Movie newMovie = new Movie("The Jungle Book", 1);
-        assertTrue(newMovie.getPriceCode() == 1);
+    public void movieChildrenPriceRentCanBeSet() {
+        newMovie = new MovieChildren("The Jungle Book");
+        newMovie.setPriceRent(2);
+        assertEquals(2, newMovie.getPriceRent(),0);
     }
 
     @Test
-    public void movieTitleDoesNotBeInt() {
-        Movie newMovie = new Movie("The Jungle Book", 1);
-        assertFalse(newMovie.getTitle().equals(1));
+    public void theChargeShouldBeCalculateByDaysRented(){
+        newMovie = new MovieChildren("The Jungle Book");
+        int daysRented = newMovie.getDaysAllowed();
+        double priceRent = newMovie.getPriceRent();
+        assertEquals(priceRent, newMovie.calculateChargeMovie(daysRented),0);
     }
 
     @Test
-    public void moviePriceCodeCanBeSet() {
-        Movie newMovie = new Movie("The Jungle Book", 1);
-        newMovie.setPriceCode(2);
-        assertEquals(2, newMovie.getPriceCode());
+    public void theChargeShouldIncrementWhenDaysRentedIsMajorThanDaysAllowed(){
+        newMovie = new MovieChildren("The Jungle Book");
+        int daysRented = 2;
+        daysRented += newMovie.getDaysAllowed();
+        double priceRent = newMovie.calculateChargeMovie(daysRented) ;
+        assertEquals(priceRent, newMovie.calculateChargeMovie(daysRented),0);
     }
 
     @Test
-    public void movieTitleCanBeGet() {
-        Movie newMovie = new Movie("The Jungle Book", 1);
-        assertEquals("The Jungle Book", newMovie.getTitle());
-    }
-
-    @Test
-    public void movieCodePriceCanBeGet() {
-        Movie newMovie = new Movie("The Jungle Book", 1);
-        assertEquals(1, newMovie.getPriceCode());
+    public void thePointsThatAddShouldBeEqualThanPointsDefined(){
+        newMovie = new MovieChildren("The Jungle Book");
+        int daysRented =  newMovie.getDaysAllowed();
+        int pointsThatAdd = newMovie.getPoints();
+        assertEquals(pointsThatAdd,newMovie.calculatePoints(daysRented));
     }
 }
