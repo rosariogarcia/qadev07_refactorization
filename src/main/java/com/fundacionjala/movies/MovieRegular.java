@@ -5,12 +5,17 @@ package com.fundacionjala.movies;
  */
 public class MovieRegular extends Movie {
 
+    private static final double PRICE_RENT = 2;
+    private static final int DAYS_ALLOWED = 2;
+    private static final double PRICE_DELAY = 1.5;
+    private static final int POINTS = 1;
+
     public MovieRegular(String title) {
         super(title);
-        super.priceRent = 2;
-        super.daysAllowed = 2;
-        super.priceDelay = 1.5;
-        super.points = 1;
+        super.priceRent = PRICE_RENT;
+        super.daysAllowed = DAYS_ALLOWED;
+        super.priceDelay = PRICE_DELAY;
+        super.points = POINTS;
     }
 
     @Override

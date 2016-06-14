@@ -17,7 +17,7 @@ class Customer {
     }
 
     public void addRental(Rental rental) {
-        getRentals().add(rental);
+        rentals.add(rental);
     }
 
     public double calculateTotalCharge() {

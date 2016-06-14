@@ -5,11 +5,15 @@ package com.fundacionjala.movies;
  */
 public class MovieNewRelease extends Movie {
 
+    private static final double PRICE_RENT = 3;
+    private static final int DAYS_ALLOWED = 1;
+    private static final int POINTS = 1;
+
     public MovieNewRelease(String title) {
         super(title);
-        super.priceRent = 3;
-        super.points = 1;
-        super.daysAllowed = 1;
+        super.priceRent = PRICE_RENT;
+        super.points = POINTS;
+        super.daysAllowed = DAYS_ALLOWED;
     }
 
     @Override
