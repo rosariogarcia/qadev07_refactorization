@@ -1,5 +1,6 @@
 package com.fundacionjala.movies;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
@@ -11,40 +12,34 @@ import static org.junit.Assert.assertTrue;
 public class MovieRegularTest {
     private Movie regularMovie;
 
+    @Before
+    public void setUp() {
+        regularMovie = new MovieRegular("The Revenant");
+    }
+
     @Test
     public void movieRegularTitleMustBeTheSpecified() {
-        regularMovie = new MovieRegular("The Revenant");
         assertTrue(regularMovie.getTitle().equals("The Revenant"));
     }
 
     @Test
-    public void movieRegularPriceRentCanBeSet() {
-        regularMovie = new MovieRegular("The Revenant");
-        regularMovie.setPriceRent(2);
-        assertEquals(2, regularMovie.getPriceRent(),0);
-    }
-
-    @Test
-    public void theChargeShouldBeCalculateByDaysRented(){
-        regularMovie = new MovieRegular("The Revenant");
+    public void theChargeShouldBeCalculateByDaysRented() {
         int daysRented = regularMovie.getDaysAllowed();
         double priceRent = regularMovie.getPriceRent();
-        assertEquals(priceRent, regularMovie.calculateChargeMovie(daysRented),0);
+        assertEquals(priceRent, regularMovie.calculateChargeMovie(daysRented), 0);
     }
 
     @Test
-    public void theChargeShouldIncrementWhenDaysRentedIsMajorThanDaysAllowed(){
-        regularMovie = new MovieRegular("The Revenant");
+    public void theChargeShouldIncrementWhenDaysRentedIsMajorThanDaysAllowed() {
         int daysRented = 2;
         daysRented += regularMovie.getDaysAllowed();
-        double priceRent = regularMovie.calculateChargeMovie(daysRented) ;
+        double priceRent = regularMovie.calculateChargeMovie(daysRented);
         assertTrue(priceRent > regularMovie.daysAllowed);
     }
 
     @Test
-    public void thePointsThatAddShouldBeEqualThanPointsDefined(){
-        regularMovie = new MovieRegular("The Revenant");
-        int daysRented =  regularMovie.getDaysAllowed();
+    public void thePointsThatAddShouldBeEqualThanPointsDefined() {
+        int daysRented = regularMovie.getDaysAllowed();
         int pointsThatAdd = regularMovie.getPoints();
         assertEquals(pointsThatAdd, regularMovie.calculatePoints(daysRented));
     }

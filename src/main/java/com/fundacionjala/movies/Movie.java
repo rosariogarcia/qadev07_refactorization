@@ -24,31 +24,16 @@ public abstract class Movie {
         return priceRent;
     }
 
-    public void setPriceRent(double priceRent) {
-        this.priceRent = priceRent;
-    }
-
     public int getDaysAllowed() {
         return daysAllowed;
-    }
-
-    public void setDaysAllowed(int daysAllowed) {
-        this.daysAllowed = daysAllowed;
     }
 
     public double getPriceDelay() {
         return priceDelay;
     }
 
-    public void setPriceDelay(double priceDelay) {
-        this.priceDelay = priceDelay;
-    }
-
     public int getPoints() {
         return points;
     }
 
-    public void setPoints(int points) {
-        this.points = points;
-    }
 }

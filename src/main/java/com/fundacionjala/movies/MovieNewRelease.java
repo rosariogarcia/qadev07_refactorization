@@ -18,16 +18,16 @@ public class MovieNewRelease extends Movie {
 
     @Override
     public double calculateChargeMovie(int daysRented) {
-        return daysRented * getPriceRent();
+        return daysRented * priceRent;
     }
 
     @Override
     public int calculatePoints(int daysRented) {
-        int points = getPoints();
+        int newPoints = points;
         if (daysRented > daysAllowed) {
-            points++;
+            newPoints++;
         }
-        return points;
+        return newPoints;
     }
 
 }

@@ -16,34 +16,27 @@ public class MovieChildrenTest {
     }
 
     @Test
-    public void movieChildrenPriceRentCanBeSet() {
-        newMovie = new MovieChildren("The Jungle Book");
-        newMovie.setPriceRent(2);
-        assertEquals(2, newMovie.getPriceRent(),0);
-    }
-
-    @Test
-    public void theChargeShouldBeCalculateByDaysRented(){
+    public void theChargeShouldBeCalculateByDaysRented() {
         newMovie = new MovieChildren("The Jungle Book");
         int daysRented = newMovie.getDaysAllowed();
         double priceRent = newMovie.getPriceRent();
-        assertEquals(priceRent, newMovie.calculateChargeMovie(daysRented),0);
+        assertEquals(priceRent, newMovie.calculateChargeMovie(daysRented), 0);
     }
 
     @Test
-    public void theChargeShouldIncrementWhenDaysRentedIsMajorThanDaysAllowed(){
+    public void theChargeShouldIncrementWhenDaysRentedIsMajorThanDaysAllowed() {
         newMovie = new MovieChildren("The Jungle Book");
         int daysRented = 2;
         daysRented += newMovie.getDaysAllowed();
-        double priceRent = newMovie.calculateChargeMovie(daysRented) ;
-        assertEquals(priceRent, newMovie.calculateChargeMovie(daysRented),0);
+        double priceRent = newMovie.calculateChargeMovie(daysRented);
+        assertEquals(priceRent, newMovie.calculateChargeMovie(daysRented), 0);
     }
 
     @Test
-    public void thePointsThatAddShouldBeEqualThanPointsDefined(){
+    public void thePointsThatAddShouldBeEqualThanPointsDefined() {
         newMovie = new MovieChildren("The Jungle Book");
-        int daysRented =  newMovie.getDaysAllowed();
+        int daysRented = newMovie.getDaysAllowed();
         int pointsThatAdd = newMovie.getPoints();
-        assertEquals(pointsThatAdd,newMovie.calculatePoints(daysRented));
+        assertEquals(pointsThatAdd, newMovie.calculatePoints(daysRented));
     }
 }

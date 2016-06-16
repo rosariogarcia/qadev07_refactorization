@@ -20,15 +20,15 @@ public class MovieChildren extends Movie {
 
     @Override
     public double calculateChargeMovie(int daysRented) {
-        double charge = getPriceRent();
-        if (daysRented > getDaysAllowed()) {
-            charge += (daysRented - getDaysAllowed()) * getPriceDelay();
+        double charge = priceRent;
+        if (daysRented > daysAllowed) {
+            charge += (daysRented - daysAllowed) * priceDelay;
         }
         return charge;
     }
 
     @Override
     public int calculatePoints(int daysRented) {
-        return getPoints();
+        return points;
     }
 }
