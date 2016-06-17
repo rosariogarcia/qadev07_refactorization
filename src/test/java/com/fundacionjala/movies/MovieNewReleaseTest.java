@@ -31,14 +31,14 @@ public class MovieNewReleaseTest {
         int daysRented = 2;
         daysRented += newReleaseMovie.getDaysAllowed();
         double priceRent = newReleaseMovie.calculateChargeMovie(daysRented);
-        assertTrue(priceRent > newReleaseMovie.daysAllowed);
+        assertTrue(priceRent > newReleaseMovie.getDaysAllowed());
     }
 
     @Test
     public void thePointsThatAddShouldBeEqualThanPointsDefinedWhenDaysRentedAreEqualThanDaysAllowed() {
         newReleaseMovie = new MovieNewRelease("X-Men Apocalipsys");
         int daysRented = newReleaseMovie.getDaysAllowed();
-        int pointsThatAdd = newReleaseMovie.getPoints();
+        int pointsThatAdd = newReleaseMovie.POINTS;
         assertEquals(pointsThatAdd, newReleaseMovie.calculatePoints(daysRented));
     }
 
@@ -46,7 +46,7 @@ public class MovieNewReleaseTest {
     public void thePointsThatAddShouldIncrementInPointsDefinedWhenDaysRentedAreMajorThanDaysAllowed() {
         newReleaseMovie = new MovieNewRelease("X-Men Apocalipsys");
         int daysRented = newReleaseMovie.getDaysAllowed();
-        int pointsThatAdd = newReleaseMovie.getPoints();
+        int pointsThatAdd = newReleaseMovie.POINTS;
         assertEquals(pointsThatAdd + pointsThatAdd, newReleaseMovie.calculatePoints(++daysRented));
     }
 }

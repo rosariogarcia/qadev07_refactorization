@@ -36,7 +36,7 @@ public class MovieChildrenTest {
     public void thePointsThatAddShouldBeEqualThanPointsDefined() {
         newMovie = new MovieChildren("The Jungle Book");
         int daysRented = newMovie.getDaysAllowed();
-        int pointsThatAdd = newMovie.getPoints();
+        int pointsThatAdd = newMovie.POINTS;
         assertEquals(pointsThatAdd, newMovie.calculatePoints(daysRented));
     }
 }

@@ -34,13 +34,13 @@ public class MovieRegularTest {
         int daysRented = 2;
         daysRented += regularMovie.getDaysAllowed();
         double priceRent = regularMovie.calculateChargeMovie(daysRented);
-        assertTrue(priceRent > regularMovie.daysAllowed);
+        assertTrue(priceRent > regularMovie.getDaysAllowed());
     }
 
     @Test
     public void thePointsThatAddShouldBeEqualThanPointsDefined() {
         int daysRented = regularMovie.getDaysAllowed();
-        int pointsThatAdd = regularMovie.getPoints();
+        int pointsThatAdd = regularMovie.POINTS;
         assertEquals(pointsThatAdd, regularMovie.calculatePoints(daysRented));
     }
 }
