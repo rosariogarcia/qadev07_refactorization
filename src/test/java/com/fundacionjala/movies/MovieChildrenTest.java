@@ -1,42 +1,47 @@
 package com.fundacionjala.movies;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertNotNull;
 
 public class MovieChildrenTest {
+    private final String title = "Angry Birds";
+    private Movie movieChildren;
+    private int daysRented;
+    private double priceRent;
+    private double priceDelay;
 
-    private Movie newMovie;
-
-    @Test
-    public void movieChildrenTitleMustBeTheSpecified() {
-        newMovie = new MovieChildren("The Jungle Book");
-        assertTrue(newMovie.getTitle().equals("The Jungle Book"));
+    @Before
+    public void SetUP() {
+        movieChildren = new MovieChildren(title);
+        daysRented = movieChildren.getDaysAllowed();
+        priceRent = movieChildren.getPriceRent();
+        priceDelay = movieChildren.getPriceDelay();
     }
 
     @Test
-    public void theChargeShouldBeCalculateByDaysRented() {
-        newMovie = new MovieChildren("The Jungle Book");
-        int daysRented = newMovie.getDaysAllowed();
-        double priceRent = newMovie.getPriceRent();
-        assertEquals(priceRent, newMovie.calculateChargeMovie(daysRented), 0);
+    public void testMovieChildrenInstanceShouldNotBeNull() {
+        assertNotNull(movieChildren);
     }
 
     @Test
-    public void theChargeShouldIncrementWhenDaysRentedIsMajorThanDaysAllowed() {
-        newMovie = new MovieChildren("The Jungle Book");
-        int daysRented = 2;
-        daysRented += newMovie.getDaysAllowed();
-        double priceRent = newMovie.calculateChargeMovie(daysRented);
-        assertEquals(priceRent, newMovie.calculateChargeMovie(daysRented), 0);
+    public void testMovieChildrenCalculateChargeByDaysRented() {
+        double priceRent = movieChildren.getPriceRent();
+        assertEquals(priceRent, movieChildren.calculateChargeMovie(daysRented), Constants.DELTA);
     }
 
     @Test
-    public void thePointsThatAddShouldBeEqualThanPointsDefined() {
-        newMovie = new MovieChildren("The Jungle Book");
-        int daysRented = newMovie.getDaysAllowed();
-        int pointsThatAdd = newMovie.POINTS;
-        assertEquals(pointsThatAdd, newMovie.calculatePoints(daysRented));
+    public void testMovieChildrenChargeIncrementWhenDaysRentedIsMajorThanDaysAllowed() {
+        daysRented++;
+        double expectedPrice = priceRent + ((daysRented - movieChildren.daysAllowed) * priceDelay);
+        assertEquals(expectedPrice, movieChildren.calculateChargeMovie(daysRented), Constants.DELTA);
+    }
+
+    @Test
+    public void testMovieChildrenPointsShouldBeOne() {
+        int expectedPoints = movieChildren.POINTS;
+        assertEquals(expectedPoints, movieChildren.calculatePoints(daysRented));
     }
 }

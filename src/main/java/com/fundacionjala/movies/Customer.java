@@ -22,7 +22,7 @@ class Customer {
 
     public double calculateTotalCharge() {
         double totalCharge = 0;
-        for (Rental rental : getRentals()) {
+        for (Rental rental : rentals) {
             totalCharge += rental.calculateCharge();
         }
         return totalCharge;
@@ -30,7 +30,7 @@ class Customer {
 
     public int calculateTotalFrequentRenterPoints() {
         int frequentRenterPoints = 0;
-        for (Rental rental : getRentals()) {
+        for (Rental rental : rentals) {
             frequentRenterPoints += rental.calculateFrequentRenterPoints();
         }
         return frequentRenterPoints;
@@ -38,10 +38,10 @@ class Customer {
 
     public String statement() {
         StringBuilder result = new StringBuilder();
-        result.append("Rental Record for");
-        result.append(getName());
+        result.append("Rental Record for ");
+        result.append(name);
         result.append(BREAK_LINE);
-        for (Rental rental : getRentals()) {
+        for (Rental rental : rentals) {
             result.append(TABULATION);
             result.append(rental.getMovie().getTitle());
             result.append(TABULATION);

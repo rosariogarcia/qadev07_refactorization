@@ -8,29 +8,30 @@ import static org.junit.Assert.assertNotNull;
 
 public class RentalTest {
 
-    private final String title = "The Jungle Book";
-    private Movie movie;
+    public static final String TITLE = "The Jungle Book";
+    public static final int DAYS_RENTED = 1;
+    private static final Movie MOVIE = new MovieChildren(TITLE);
     private Rental rental;
 
     @Before
     public void setUp() {
-        rental = new Rental(new MovieChildren(title), 1);
+        rental = new Rental(MOVIE, DAYS_RENTED);
     }
 
     @Test
-    public void rentalMustBeContainsTheMovieAndDaysToRent() {
+    public void testRentalTheInstanceShouldNotBeNull() {
         assertNotNull(rental);
     }
 
     @Test
-    public void theMovieShouldBeEqualsToCreated() {
-        assertEquals(title, rental.getMovie().getTitle());
+    public void testRentalCalculateFrequentPointsForMovie() {
+        int expectedPoints = 1;
+        assertEquals(expectedPoints, rental.calculateFrequentRenterPoints());
     }
 
     @Test
-    public void calculateChargeMovieTest() {
-        movie = new MovieChildren(title);
-        double chargeByDaysAllowed = movie.getPriceRent();
+    public void testRentalCalculateChargeMovieTest() {
+        double chargeByDaysAllowed = MOVIE.getPriceRent();
         assertEquals(chargeByDaysAllowed, rental.calculateCharge(), 0);
     }
 }

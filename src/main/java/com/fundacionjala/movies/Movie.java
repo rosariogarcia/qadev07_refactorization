@@ -3,10 +3,10 @@ package com.fundacionjala.movies;
 public abstract class Movie {
 
     protected static final int POINTS = 1;
-    private final String title;
-    private final double priceRent;
-    private final double priceDelay;
-    private final int daysAllowed;
+    protected final String title;
+    protected final double priceRent;
+    protected final double priceDelay;
+    protected final int daysAllowed;
 
     public Movie(String title, double priceRent, int daysAllowed, double priceDelay) {
         this.title = title;
@@ -15,15 +15,15 @@ public abstract class Movie {
         this.daysAllowed = daysAllowed;
     }
 
-    public double calculateChargeMovie(int daysRented){
-        double charge = getPriceRent();
-        if (daysRented > getDaysAllowed()) {
-            charge += (daysRented - getDaysAllowed()) * getPriceDelay();
+    public double calculateChargeMovie(int daysRented) {
+        double charge = priceRent;
+        if (daysRented > daysAllowed) {
+            charge += (daysRented - daysAllowed) * priceDelay;
         }
         return charge;
     }
 
-    protected int calculatePoints(int daysRented){
+    protected int calculatePoints(int daysRented) {
         return POINTS;
     }
 
