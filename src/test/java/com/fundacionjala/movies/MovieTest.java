@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * Created by RosarioGarcia on 6/17/2016.
+ * Tests for {@link Movie}
  */
 public class MovieTest {
     public static final String TITLE = "La vita é bella";

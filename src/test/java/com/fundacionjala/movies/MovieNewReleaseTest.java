@@ -7,7 +7,7 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
 /**
- * Created by Charito on 6/13/2016.
+ * Tests for {@link MovieNewRelease}
  */
 public class MovieNewReleaseTest {
     private Movie newReleaseMovie;

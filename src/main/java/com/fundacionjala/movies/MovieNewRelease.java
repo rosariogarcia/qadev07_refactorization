@@ -1,7 +1,8 @@
 package com.fundacionjala.movies;
 
 /**
- * Created by Charito on 6/10/2016.
+ * @author RosarioGarcia
+ *         {@inheritDoc}
  */
 public class MovieNewRelease extends Movie {
 
@@ -9,22 +10,29 @@ public class MovieNewRelease extends Movie {
     private static final int DAYS_ALLOWED = 1;
     private static final int PRICE_DELAY = 0;
 
+    /**
+     * Constructor class that recive the Movie's title
+     *
+     * @param title Movie's title
+     */
     public MovieNewRelease(String title) {
         super(title, PRICE_RENT, DAYS_ALLOWED, PRICE_DELAY);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public double calculateChargeMovie(int daysRented) {
         return daysRented * priceRent;
     }
 
+    /**
+     * {@inheritDoc}
+     */
     @Override
     public int calculatePoints(int daysRented) {
-        int newPoints = POINTS;
-        if (daysRented > daysAllowed) {
-            newPoints++;
-        }
-        return newPoints;
+        return daysRented > daysAllowed ? POINTS + 1 : POINTS;
     }
 
 }

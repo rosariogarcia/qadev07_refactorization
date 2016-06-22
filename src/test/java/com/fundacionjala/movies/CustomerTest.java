@@ -6,10 +6,12 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+/**
+ * Tests for {@link Customer}
+ */
 public class CustomerTest {
 
-    public static final int EXPECTED_SIZE_RENTAL_ONE_MOVIE = 1;
-    public static final int DELTA = 0;
+    private static final int EXPECTED_SIZE_RENTAL_ONE_MOVIE = 1;
     private Customer customer;
     private Movie movie;
 
@@ -26,7 +28,7 @@ public class CustomerTest {
     @Test
     public void testCustomerCanBeRentAChildrenMovie() {
         movie = new MovieChildren("The Revenant");
-        int daysRented = 4;
+        final int daysRented = 4;
         customer.addRental(new Rental(movie, daysRented));
         assertEquals(EXPECTED_SIZE_RENTAL_ONE_MOVIE, customer.getRentals().size());
     }
@@ -34,7 +36,7 @@ public class CustomerTest {
     @Test
     public void testCustomerCanBeRentARegularMovie() {
         movie = new MovieRegular("The Jungle Book");
-        int daysRented = 1;
+        final int daysRented = 1;
         customer.addRental(new Rental(movie, daysRented));
         assertEquals(EXPECTED_SIZE_RENTAL_ONE_MOVIE, customer.getRentals().size());
     }
@@ -42,18 +44,18 @@ public class CustomerTest {
     @Test
     public void testCustomerCanBeRentANewReleaseMovie() {
         movie = new MovieNewRelease("X-Men Apocalypses");
-        int daysRented = 1;
+        final int daysRented = 1;
         customer.addRental(new Rental(movie, daysRented));
         assertEquals(EXPECTED_SIZE_RENTAL_ONE_MOVIE, customer.getRentals().size());
     }
 
     @Test
     public void testCustomerCalculateTotalChargeOfMoviesRented() {
-
+        double expectedTotalCharge = 0;
         movie = new MovieNewRelease("X-Men Apocalypses");
         int daysRentedNewRelease = movie.daysAllowed;
         customer.addRental(new Rental(movie, daysRentedNewRelease));
-        double expectedTotalCharge = movie.calculateChargeMovie(daysRentedNewRelease);
+        expectedTotalCharge = expectedTotalCharge + movie.calculateChargeMovie(daysRentedNewRelease);
 
         movie = new MovieChildren("The Revenant");
         int daysRentedChildren = movie.daysAllowed;
@@ -65,7 +67,7 @@ public class CustomerTest {
         customer.addRental(new Rental(movie, daysRentedRegular));
         expectedTotalCharge += movie.calculateChargeMovie(daysRentedRegular);
 
-        assertEquals(expectedTotalCharge, customer.calculateTotalCharge(), DELTA);
+        assertEquals(expectedTotalCharge, customer.calculateTotalCharge(), Constants.DELTA);
     }
 
     @Test
@@ -86,7 +88,7 @@ public class CustomerTest {
         customer.addRental(new Rental(movie, daysRentedRegular));
         expectedTotalFrequentPoints += movie.calculatePoints(daysRentedRegular);
 
-        assertEquals(expectedTotalFrequentPoints, customer.calculateTotalFrequentRenterPoints(), DELTA);
+        assertEquals(expectedTotalFrequentPoints, customer.calculateTotalFrequentRenterPoints(), Constants.DELTA);
     }
 
     @Test

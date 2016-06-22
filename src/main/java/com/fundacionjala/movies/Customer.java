@@ -3,6 +3,9 @@ package com.fundacionjala.movies;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Class to define methods that can do a Customer
+ */
 class Customer {
     private static final String BREAK_LINE = "\n";
 
@@ -16,10 +19,16 @@ class Customer {
         this.name = name;
     }
 
+    /**
+     * Add a new rent of movie
+     */
     public void addRental(Rental rental) {
         rentals.add(rental);
     }
 
+    /**
+     * @return total charge of movies rented
+     */
     public double calculateTotalCharge() {
         double totalCharge = 0;
         for (Rental rental : rentals) {
@@ -28,6 +37,9 @@ class Customer {
         return totalCharge;
     }
 
+    /**
+     * @return total points of movies rented
+     */
     public int calculateTotalFrequentRenterPoints() {
         int frequentRenterPoints = 0;
         for (Rental rental : rentals) {
@@ -36,6 +48,9 @@ class Customer {
         return frequentRenterPoints;
     }
 
+    /**
+     * @return Detail of movies rented
+     */
     public String statement() {
         StringBuilder result = new StringBuilder();
         result.append("Rental Record for ");
@@ -48,21 +63,18 @@ class Customer {
             result.append(rental.calculateCharge());
             result.append(BREAK_LINE);
         }
-        // add footer lines
         result.append("Amount owed is ");
         result.append(calculateTotalCharge());
         result.append(BREAK_LINE);
         result.append("You earned ");
         result.append(calculateTotalFrequentRenterPoints());
         result.append(" frequent renter points");
-
         return result.toString();
     }
 
-    public String getName() {
-        return name;
-    }
-
+    /**
+     * @return list of rents
+     */
     public List<Rental> getRentals() {
         return rentals;
     }

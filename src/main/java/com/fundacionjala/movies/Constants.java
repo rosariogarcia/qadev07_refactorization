@@ -1,8 +1,11 @@
 package com.fundacionjala.movies;
 
 /**
- * Created by RosarioGarcia on 6/17/2016.
+ * @author RosarioGarcia
  */
 public class Constants {
+    /**
+     * variable to use in unit Tests
+     */
     public static final int DELTA = 0;
 }

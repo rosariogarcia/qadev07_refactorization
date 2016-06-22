@@ -6,6 +6,9 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 
+/**
+ * Tests for {@link MovieChildren}
+ */
 public class MovieChildrenTest {
     private final String title = "Angry Birds";
     private Movie movieChildren;
