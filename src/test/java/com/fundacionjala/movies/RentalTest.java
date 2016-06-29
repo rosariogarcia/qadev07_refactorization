@@ -11,15 +11,15 @@ import static org.junit.Assert.assertNotNull;
  */
 public class RentalTest {
 
-    public static final String TITLE = "The Jungle Book";
-    public static final int DAYS_RENTED = 1;
-    private static Movie MOVIE;
+    private static final String TITLE = "The Jungle Book";
+    private static final int DAYS_RENTED = 1;
+    private Movie movie;
     private Rental rental;
 
     @Before
     public void setUp() {
-        MOVIE = new MovieChildren(TITLE);
-        rental = new Rental(MOVIE, DAYS_RENTED);
+        movie = new MovieChildren(TITLE);
+        rental = new Rental(movie, DAYS_RENTED);
     }
 
     @Test
@@ -29,13 +29,13 @@ public class RentalTest {
 
     @Test
     public void testRentalCalculateFrequentPointsForMovie() {
-        int expectedPoints = 1;
+        final int expectedPoints = 1;
         assertEquals(expectedPoints, rental.calculateFrequentRenterPoints());
     }
 
     @Test
     public void testRentalCalculateChargeMovieTest() {
-        double chargeByDaysAllowed = MOVIE.getPriceRent();
+        final double chargeByDaysAllowed = movie.getPriceRent();
         assertEquals(chargeByDaysAllowed, rental.calculateCharge(), 0);
     }
 }

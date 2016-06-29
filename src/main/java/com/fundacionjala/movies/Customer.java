@@ -4,7 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Class to define methods that can do a Customer
+ * Class to define methods that can do a Customer like do a new rent of movie,
+ * calculate the total charge of movies rented,
+ * calculate the total renter points,
+ * and display the details of movies rented.
  */
 class Customer {
     private static final String BREAK_LINE = "\n";
@@ -27,7 +30,9 @@ class Customer {
     }
 
     /**
-     * @return total charge of movies rented
+     * Calculates the total charges for all rentals
+     *
+     * @return total charge of rented movies
      */
     public double calculateTotalCharge() {
         double totalCharge = 0;
@@ -38,6 +43,8 @@ class Customer {
     }
 
     /**
+     * Calculate the total renter points of movies rented
+     *
      * @return total points of movies rented
      */
     public int calculateTotalFrequentRenterPoints() {
@@ -49,6 +56,11 @@ class Customer {
     }
 
     /**
+     * This method display the details of all movies rented,
+     * the amount by movie,
+     * the total points
+     * and the total amount
+     *
      * @return Detail of movies rented
      */
     public String statement() {
@@ -73,6 +85,8 @@ class Customer {
     }
 
     /**
+     * List the movies rented
+     *
      * @return list of rents
      */
     public List<Rental> getRentals() {

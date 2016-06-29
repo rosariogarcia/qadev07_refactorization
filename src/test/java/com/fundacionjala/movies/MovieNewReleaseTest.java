@@ -10,8 +10,8 @@ import static org.junit.Assert.assertNotNull;
  * Tests for {@link MovieNewRelease}
  */
 public class MovieNewReleaseTest {
-    private Movie newReleaseMovie;
     private final String title = "X-Men Apocalipsys";
+    private Movie newReleaseMovie;
     private int daysRented;
     private double priceRent;
 
@@ -29,20 +29,20 @@ public class MovieNewReleaseTest {
 
     @Test
     public void testMovieNewReleaseCalculateChargeByDayRented() {
-        double expectedPrice = priceRent * daysRented;
+        final double expectedPrice = priceRent * daysRented;
         assertEquals(expectedPrice, newReleaseMovie.calculateChargeMovie(daysRented), Constants.DELTA);
     }
 
     @Test
     public void testMovieNewReleaseCalculatePointsWhenDaysRentedAreMinorOrEqualThanDaysAllowed() {
-        int expectedPoints = newReleaseMovie.POINTS;
+        final int expectedPoints = newReleaseMovie.POINTS;
         assertEquals(expectedPoints, newReleaseMovie.calculatePoints(daysRented));
     }
 
     @Test
     public void testMovieNewReleaseCalculatePointsWhenDaysRentedIsMajorThanDaysAllowed() {
         daysRented++;
-        int expectedPoints = newReleaseMovie.POINTS;
-        assertEquals(++expectedPoints, newReleaseMovie.calculatePoints(daysRented));
+        final int expectedPoints = newReleaseMovie.POINTS;
+        assertEquals(expectedPoints + 1, newReleaseMovie.calculatePoints(daysRented));
     }
 }

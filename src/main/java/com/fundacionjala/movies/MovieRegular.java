@@ -11,7 +11,7 @@ public class MovieRegular extends Movie {
     private static final double PRICE_DELAY = 1.5;
 
     /**
-     * Constructor class that recive the Movie's title
+     * Constructor class that receive the Movie's title
      *
      * @param title Movie's title
      */

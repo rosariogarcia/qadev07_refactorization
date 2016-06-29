@@ -12,6 +12,8 @@ public abstract class Movie {
     protected final int daysAllowed;
 
     /**
+     * Constructor of class
+     *
      * @param title       Movie's title.
      * @param priceRent   Movie's price of rent.
      * @param daysAllowed Days allowed for rent without increment charge.
@@ -25,6 +27,8 @@ public abstract class Movie {
     }
 
     /**
+     * Calculate the Charge of Movie by days rented
+     *
      * @param daysRented Days asked to rent a movie by Customer
      * @return Charge of movie by days rented.
      */
@@ -33,6 +37,8 @@ public abstract class Movie {
     }
 
     /**
+     * Calculate the Points of Movie by days rented
+     *
      * @param daysRented Days asked to rent a movie by Customer
      * @return Points of movie by days rented.
      */
@@ -41,6 +47,8 @@ public abstract class Movie {
     }
 
     /**
+     * Get the title of Movie
+     *
      * @return Movie's title
      */
     public String getTitle() {
@@ -48,6 +56,8 @@ public abstract class Movie {
     }
 
     /**
+     * Get the price of Movie
+     *
      * @return Movie's price of rent
      */
     public double getPriceRent() {
@@ -55,6 +65,8 @@ public abstract class Movie {
     }
 
     /**
+     * Get the Movie's price delay
+     *
      * @return Movie's Price incremented when days allowed is get over.
      */
     public double getPriceDelay() {
@@ -62,6 +74,8 @@ public abstract class Movie {
     }
 
     /**
+     * Get the Days allowed to rent a movie without charge extra
+     *
      * @return Movie's days allowed for rent without increment charge.
      */
     public int getDaysAllowed() {

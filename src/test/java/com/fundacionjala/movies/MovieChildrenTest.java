@@ -31,20 +31,20 @@ public class MovieChildrenTest {
 
     @Test
     public void testMovieChildrenCalculateChargeByDaysRented() {
-        double priceRent = movieChildren.getPriceRent();
+        final double priceRent = movieChildren.getPriceRent();
         assertEquals(priceRent, movieChildren.calculateChargeMovie(daysRented), Constants.DELTA);
     }
 
     @Test
     public void testMovieChildrenChargeIncrementWhenDaysRentedIsMajorThanDaysAllowed() {
         daysRented++;
-        double expectedPrice = priceRent + ((daysRented - movieChildren.daysAllowed) * priceDelay);
+        final double expectedPrice = priceRent + ((daysRented - movieChildren.daysAllowed) * priceDelay);
         assertEquals(expectedPrice, movieChildren.calculateChargeMovie(daysRented), Constants.DELTA);
     }
 
     @Test
     public void testMovieChildrenPointsShouldBeOne() {
-        int expectedPoints = movieChildren.POINTS;
+        final int expectedPoints = movieChildren.POINTS;
         assertEquals(expectedPoints, movieChildren.calculatePoints(daysRented));
     }
 }

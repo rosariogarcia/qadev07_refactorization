@@ -2,7 +2,7 @@ package com.fundacionjala.movies;
 
 /**
  * @author RosarioGarcia
- *         {@inheritDoc}
+ * @inheritDoc
  */
 public class MovieNewRelease extends Movie {
 
